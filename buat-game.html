@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buat game</title>
+  </head>
+  <body>
+    <script>
+      function rand(a, b) {
+        return Math.floor(Math.random() * a + b);
+      }
+      const compt = rand(3, 1);
+      console.log(compt);
+
+      function main() {
+        let round = 0;
+        while (round <= 5) {
+          let player1 = prompt(" player1 masukkan angka yang anda tebak");
+          let player2 = prompt("player2 masukkan angka yang anda tebak");
+
+          if (player1 < 1 || player1 > 3) {
+            alert("tebakan tidak boleh lebih besar 3 atau lebih kecil 1");
+          } else if (player2 < 1 || player2 > 3) {
+            alert("tebakan tidak boleh lebih besar 3 atau lebih kecil 1");
+          } else if (player1 == player2) {
+            alert("tebakan tidak boleh sama");
+          }
+
+          if (player1 == compt) {
+            alert("player1 mendapatkan satu point");
+          } else {
+            alert("player1 tidak mendapatkan point");
+          }
+
+          if (player2 == compt) {
+            alert("player2 mendapatkan satu point");
+          } else {
+            alert("player2 tidak mendapatkan point");
+          }
+
+          let score_player1 = 0;
+          let score_player2 = 0;
+          let answer = compt;
+          if (player1 == answer) {
+            player1 = true;
+            score_player1++;
+          }
+          if (player2 == answer) {
+            player2 = true;
+            score_player2++;
+          }
+
+          alert(`nilai yang didapat sementara 
+=====================
+        score player 1 = ${score_player1}
+        score player 2 = ${score_player2}`);
+          round++;
+        }
+      }
+
+      alert(main());
+    </script>
+  </body>
+</html>
