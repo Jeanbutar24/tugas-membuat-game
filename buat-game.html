@@ -16,7 +16,16 @@
       const compt = rand(3, 1);
       console.log(compt);
 
+      let score_player1 = 0;
+      let score_player2 = 0;
+
       function main() {
+        function rand(a, b) {
+          return Math.floor(Math.random() * a + b);
+        }
+        const compt = rand(3, 1);
+        console.log(compt);
+
         let player1 = prompt(" player1 masukkan angka yang anda tebak (1-3)");
         if (player1 < 1 || player1 > 3) {
           alert("tebakan tidak boleh lebih besar 3 atau lebih kecil 1");
@@ -41,13 +50,10 @@
           alert("player2 tidak mendapatkan point");
         }
 
-        let score_player1 = 0;
-        let score_player2 = 0;
-        let answer = compt;
-        if (player1 == answer) {
+        if (player1 == compt) {
           score_player1++;
         }
-        if (player2 == answer) {
+        if (player2 == compt) {
           score_player2++;
         }
 
@@ -55,6 +61,24 @@
       =====================
               score player 1 = ${score_player1}
               score player 2 = ${score_player2}`);
+
+        if (round == 5) {
+          alert(`nilai total yang didapat
+      =====================
+              score player 1 = ${score_player1}
+              score player 2 = ${score_player2}`);
+
+          if (score_player1 >= score_player2) {
+            alert(`player 1 menang`);
+            alert(`Terimakasih telah bermain silahkan datang lagi`);
+          } else if (score_player1 <= score_player2) {
+            alert(`player 2 menang`);
+            alert(`Terimakasih telah bermain silahkan datang lagi`);
+          } else {
+            alert(`hasil seri`);
+            alert(`Terimakasih telah bermain silahkan datang lagi`);
+          }
+        }
       }
 
       let round = 1;
